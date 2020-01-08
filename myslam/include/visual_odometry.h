@@ -1,5 +1,6 @@
 //
 // Created by xu on 2019/12/13.
+// 最后这一版本，挺复杂的
 //
 
 #ifndef MYSLAM_VISUAL_ODOMETRY_H
@@ -27,11 +28,15 @@ public:
     Frame::Ptr  ref_;
 
     cv::Ptr<cv::ORB>        orb_;  // orb detector and computer
-    vector<cv::Point3f>     pts_3d_ref; // ref's 3d
+    vector<cv::Point3f>     pts_3d_ref_; // ref's 3d
     vector<cv::KeyPoint>    keypoints_curr_;
     Mat                     descriptors_curr_;
     Mat                     descriptors_ref_;
     vector<cv::DMatch>      feature_matches_;
+    cv::FlannBasedMatcher   matcher_flann_;     // flann matcher
+
+    vector<MapPoint::Ptr>   match_3dpts_;           // 已经匹配好的三维空间点
+    vector<int>             match_2dkp_index_;      // cur对应的3D-2D中的索引
 
     SE3 T_c_r_estimated_;
     int num_inliers_;
@@ -46,9 +51,10 @@ public:
     int max_num_lost_;      // 允许最大丢失帧数
     int min_inliers_;
 
+
     double key_frame_min_rot;   // minimal rotation of two key-frame
     double key_frame_min_trans; // minimal translation of two key-frame
-
+    double map_point_erase_ratio_;   // remove map point ratio
     // function
 public:
     VisualOdometry();
@@ -62,7 +68,11 @@ protected:
     void computeDescriptors();
     void featureMatching();
     void poseEstimationPnP();
-    void setRef3DPoints();
+    void optimizeMap();
+
+    void addMapPoints();
+
+    double getViewAngle(Frame::Ptr frame, MapPoint::Ptr point);
 
     void addKeyFrame();
     bool checkEstimatedPose();

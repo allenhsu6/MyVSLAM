@@ -19,6 +19,7 @@ void myslam::Map::insertKeyFrame(Frame::Ptr frame) {
     }
 }
 
+// 地图点的添加与更新
 void myslam::Map::insertMapPoint(MapPoint::Ptr map_point) {
     cout << "map_point size = " << map_points_.size() << endl;
     if (map_points_.find((map_point->id_)) == map_points_.end()){

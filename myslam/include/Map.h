@@ -7,14 +7,14 @@
 
 #include <common_include.h>
 #include <MapPoint.h>
-
+#include <Frame.h>
 namespace myslam
 {
 class Map
 {
 public:
     typedef shared_ptr<Map> Ptr;
-    unordered_map<unsigned long, MapPoint::Ptr> map_points_;    // all_landmark
+    unordered_map<unsigned long, MapPoint::Ptr> map_points_;    // all_landmark 序号以及landmark
     unordered_map<unsigned long, Frame::Ptr> keyframes_;        // all key_frames
 
     Map() {}

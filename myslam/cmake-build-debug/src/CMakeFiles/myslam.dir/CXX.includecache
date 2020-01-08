@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -25,11 +25,11 @@ common_include.h
 -
 MapPoint.h
 -
+Frame.h
+-
 
 ../include/MapPoint.h
 common_include.h
--
-Frame.h
 -
 
 ../include/common_include.h
@@ -58,6 +58,30 @@ map
 memory
 -
 
+../include/g2o_types.h
+common_include.h
+-
+Camera.h
+-
+g2o/core/base_vertex.h
+-
+g2o/core/base_binary_edge.h
+-
+g2o/core/base_unary_edge.h
+-
+g2o/core/block_solver.h
+-
+g2o/core/optimization_algorithm_levenberg.h
+-
+g2o/types/sba/types_six_dof_expmap.h
+-
+g2o/solvers/dense/linear_solver_dense.h
+-
+g2o/core/robust_kernel.h
+-
+g2o/core/robust_kernel_impl.h
+-
+
 ../include/visual_odometry.h
 common_include.h
 -
@@ -65,6 +89,54 @@ Map.h
 -
 opencv2/features2d/features2d.hpp
 -
+
+/home/xu/MyVSLAM/myslam/include/Camera.h
+common_include.h
+-
+
+/home/xu/MyVSLAM/myslam/include/Frame.h
+common_include.h
+-
+Camera.h
+-
+
+/home/xu/MyVSLAM/myslam/include/Map.h
+common_include.h
+-
+MapPoint.h
+-
+Frame.h
+-
+
+/home/xu/MyVSLAM/myslam/include/MapPoint.h
+common_include.h
+-
+
+/home/xu/MyVSLAM/myslam/src/Camera.cpp
+../include/Camera.h
+/home/xu/MyVSLAM/myslam/include/Camera.h
+Config.h
+-
+
+/home/xu/MyVSLAM/myslam/src/Config.cpp
+Config.h
+/home/xu/MyVSLAM/myslam/src/Config.h
+
+/home/xu/MyVSLAM/myslam/src/Frame.cpp
+../include/Frame.h
+/home/xu/MyVSLAM/myslam/include/Frame.h
+
+/home/xu/MyVSLAM/myslam/src/Map.cpp
+../include/Map.h
+/home/xu/MyVSLAM/myslam/include/Map.h
+
+/home/xu/MyVSLAM/myslam/src/MapPoint.cpp
+../include/MapPoint.h
+/home/xu/MyVSLAM/myslam/include/MapPoint.h
+
+/home/xu/MyVSLAM/myslam/src/g2o_types.cpp
+g2o_types.h
+/home/xu/MyVSLAM/myslam/src/g2o_types.h
 
 /home/xu/MyVSLAM/myslam/src/visual_odometry.cpp
 visual_odometry.h
@@ -78,6 +150,8 @@ algorithm
 boost/timer.hpp
 -
 Config.h
+-
+g2o_types.h
 -
 
 /home/xu/slambook/3rdparty/Sophus/sophus/se3.h

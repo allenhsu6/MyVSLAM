@@ -4,6 +4,7 @@ add_library(myslam SHARED
         Map.cpp
         MapPoint.cpp
         Frame.cpp
-        visual_odometry.cpp)
+        visual_odometry.cpp
+        g2o_types.cpp)
 
 target_link_libraries(myslam ${THIRD_PARTY_LIBS})

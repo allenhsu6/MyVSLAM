@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -25,11 +25,11 @@ common_include.h
 -
 MapPoint.h
 -
+Frame.h
+-
 
 ../include/MapPoint.h
 common_include.h
--
-Frame.h
 -
 
 ../include/common_include.h

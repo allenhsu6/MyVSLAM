@@ -21,6 +21,8 @@ public:
     Camera::Ptr             camera_;            // 相机模型
     Mat                     color_, depth_;     // 彩色与灰度图
 
+    bool                    is_key_frame_;      // 是否为关键帧
+
     Frame();
     Frame(long id, double time_stamp=0, SE3 T_c_w=SE3(),
             Camera::Ptr camera= nullptr, Mat color=Mat(), Mat depth=Mat());
